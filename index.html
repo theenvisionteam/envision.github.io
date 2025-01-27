@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html data-qb-installed="true">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kousaka's Website</title>
+    <style>
+        /* Global Styles */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Loader Styling */
+        #loader {
+            border: 8px solid #444;
+            border-top: 8px solid white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1.5s linear infinite;
+            position: absolute;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Main Content Hidden Initially */
+        #main-content {
+            display: none;
+        }
+
+        h1 {
+            color: #ffffff;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+            animation-delay: 0.5s;
+        }
+
+        p {
+            font-family: Georgia, serif;
+            font-size: 20px;
+            font-weight: normal;
+            color: #ffffff;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+            animation-delay: 1s;
+        }
+
+        /* Button Styling */
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            text-decoration: none;
+            background-color: white;
+            color: black;
+            border-radius: 25px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+            animation-delay: 1.5s; /* Delay for buttons */
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .coming-soon {
+            background-color: gray;
+            color: lightgray;
+            cursor: not-allowed;
+        }
+
+        /* Button Hover Animation */
+        a:hover:not(.coming-soon) {
+            transform: scale(1.1) rotate(5deg);
+            background-color: #f0f0f0;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            a {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+        }
+    </style>
+    <script>
+        // Loader Timeout
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+            }, 3000); // Loader duration
+        });
+
+        // Spacebar Navigation
+        let spacebarPressCount = 0;
+        document.addEventListener("keydown", function (e) {
+            if (e.code === "Space") {
+                spacebarPressCount++;
+                if (spacebarPressCount === 3) {
+                    window.location.href = "SNAKE.html";
+                }
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="loader"></div>
+
+    <div id="main-content">
+        <h1>Welcome to Kousaka's Website</h1>
+        <p>Visit my Pages Below!</p>
+        <div>
+            <a href="https://github.com/Kousaka75">GitHub</a>
+            <a href="https://www.youtube.com/@Kousaka75">YouTube</a>
+            <a class="coming-soon">Discord Server (Coming Soon)</a> 
+        </div>
+    </div>
+</body>
+</html>
